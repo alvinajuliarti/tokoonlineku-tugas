@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)http://localhost/tokoonlineku/admin.php?pictures -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Admin Panel | OLIN KIRANA SKINCARE</title>
+		
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="shortcut icon" href="http://localhost/tokoonlineku/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="http://localhost/tokoonlineku/favicon.ico" type="image/x-icon">
+		<script src="./Admin Panel _ OLIN KIRANA SKINCARE_files/jquery.min.js.download"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&amp;display=swap" rel="stylesheet">
+		
+		<link rel="stylesheet" type="text/css" href="./Admin Panel _ OLIN KIRANA SKINCARE_files/font-awesome.css">
+		
+		<script src="./Admin Panel _ OLIN KIRANA SKINCARE_files/tinymce.min.js.download"></script>
+		<script>
+			tinymce.init({ selector : 'textarea' , plugins : 'directionality, code', toolbar : 'ltr rtl, code', relative_urls: false, remove_script_host : false, });
+		</script>
+		<script src="./Admin Panel _ OLIN KIRANA SKINCARE_files/jquery.form.js.download"></script>
+		<script src="./Admin Panel _ OLIN KIRANA SKINCARE_files/jscolor.js.download"></script>
+		<script src="./Admin Panel _ OLIN KIRANA SKINCARE_files/somefunctions.js.download"></script>
+		<style>
+	/* SCROLLBAR STYLING */
+	/* width */
+	::-webkit-scrollbar {
+		width: 6px;
+		height: 3px;
+	}
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: black; 
+	}
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: #28F2BE; 
+		border-radius: 6px;
+	}
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: #514FFF; 
+	}
+
+	h1, h2, h3, h4, h5, p{
+		margin: 0px;
+		margin-bottom: 10px;
+	}
+
+	p{
+		margin-bottom: 15px;
+	}
+	
+	div{
+		outline: none;
+	}
+
+	body{
+		padding: 0px;
+		margin: 0px;
+		font-family: 'Dosis', sans-serif;
+		background-color: #4a4a4a;
+		overflow-x: hidden;
+		
+		background: url(images/bgimage.jpg) no-repeat fixed center; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+	
+	
+	input, select, textarea{
+		box-sizing: border-box;
+		width: 100%;
+		padding: 20px;
+		border-radius: 5px;
+		margin-bottom: 20px;
+		border: 2px solid #28F2BE;
+	}
+	
+	
+	input[type=submit]{
+		font-weight: bold;
+		color: white;
+	}
+	
+	input[type=checkbox]{
+		width: 20px;
+	}
+	
+	select{
+		padding: 20px;
+		border-radius: 0px;
+		margin-bottom: 20px;
+		border: none;
+		outline: 2px solid #28F2BE;
+	}
+	
+	.submitbutton{
+		background-color: #28F2BE; 
+		color: black;
+		cursor: pointer;
+	}
+	.submitbutton:hover{
+		background-color: #514FFF; 
+	}
+	
+	.fileinput{
+		cursor: pointer;
+		border: 3px dashed #514FFF; 
+	}
+	
+	.fileinput:hover{
+		border: 3px solid #514FFF; 
+	}
+	
+	.textlink{
+		text-decoration: underline;
+		color: #28F2BE; 
+	}
+	.textlink:hover{
+		text-decoration: none;
+	}
+	
+	a{
+		color: inherit;
+		text-decoration: none;
+	}
+	
+	label{
+		display: block;
+		margin-bottom: 10px;
+		font-size: 19px;
+		margin-top: 30px;
+	}
+	
+	#cartui{
+		z-index: 130;
+		background-color: rgba(0,0,0,.8);
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: none;
+		position: fixed;
+		padding: 50px;
+		color: white;
+		overflow: auto;
+		backdrop-filter: blur(15px);
+		-webkit-backdrop-filter: blur(15px);
+	}
+	
+	.alert{
+		background-color: green; 
+		color: white;
+		font-weight: bold;
+		padding: 10px;
+		border-radius: 5px;
+		margin-bottom: 10px;
+	}
+	
+	.categoryblock{
+		display: inline-block;
+		background-color: #28F2BE; 
+		border-radius: 10px;
+		color: white;
+		padding: 5px;
+		font-weight: bold;
+		margin: 5px;
+	}
+	
+	.categoryblock:hover{
+		background-color: white;
+		color: #28F2BE; 
+	}
+	
+	table {
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	table, th, td {
+		border: 1px solid black;
+		font-size: 14px;
+	}
+
+	th{
+		text-align: center;
+		font-weight: bold;
+		background-color: #28F2BE;
+		color: white;
+	}
+
+	th, td{
+		padding: 10px;
+	}
+
+	tr:hover{
+		background-color: white;
+		color: #28F2BE;
+	}
+	
+	.inlinecenterblock{
+		display: inline-block;
+		vertical-align: middle;
+		padding: 20px;
+		padding: 10px; padding-top: 15px; padding-left: 20px; padding-right: 0px;
+	}
+	
+	#header{
+		background-color: rgba(255, 255, 255, .75);		
+		font-size: 25px;
+		/*border-bottom: 1px solid #28F2BE;*/
+		-webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.35);
+		-moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.35);
+		box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.35);
+		
+		backdrop-filter: blur(15px);
+		-webkit-backdrop-filter: blur(15px);
+		position: -webkit-sticky; /* Safari */
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		
+	}
+	
+	#categoriesbar{
+		background-color: rgba(255, 255, 255, .5);		
+		border-bottom: 1px solid white;
+	}
+	
+	#cartbutton{
+		position: fixed;
+		right: 0;
+		bottom: 0;
+		padding: 30px;
+		font-size: 60px;
+		color: #28F2BE;
+		z-index: 100;
+	}
+	
+	
+	#imagedisplayer{
+		background-color: rgba(0,0,0,.8);
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		padding: 50px;
+		display: none;
+		z-index: 120;
+		text-align: center;
+		overflow: auto;
+		backdrop-filter: blur(15px);
+		-webkit-backdrop-filter: blur(15px);
+	}
+	
+	.searchbutton{
+		cursor: pointer;
+	}
+	
+	.searchbutton:hover{
+		color: #28F2BE;
+		
+		
+	}
+	
+	.moreoncat:hover{
+		color: black;
+		transition: border .5s;
+	}
+	
+	.catseparator{
+		border-bottom: 1px solid white; padding-bottom: 14px;
+		transition: border .5s;
+	}
+	
+	.catseparator:hover{
+		border-bottom: 1px solid #28F2BE;
+	}
+	
+	.section{
+		padding: 20px;
+	}
+	
+	.footerlink{
+		background-color: #e0e0e0;
+		display: table; 
+		width: 100%;
+		font-size: 13px;
+		padding-left: 100px;
+		padding-right: 100px;
+		box-sizing: border-box;
+	}
+	
+	.flblock{
+		display: table-cell;
+		text-align: left;
+		padding: 20px;
+		vertical-align: top;
+		max-width: 200px;
+	}
+	
+	.footercopyright{
+		font-size: 11px;
+		color: white;
+		background-color: #28F2BE;
+		text-align: center;
+	}
+	
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	li{
+		width: 100%;
+		display: inline-block;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		transition: color .5s;
+	}
+	
+	li:hover{
+		color: #28F2BE;
+		transition: color .5s;
+	}
+	
+	.firstthreeblock{
+		margin: 30px;
+		background-color: white;
+		border-radius: 6px;
+		border: 1px solid white;
+		color: white;
+		outline: none;
+	}
+	
+	.morebutton{
+		cursor: pointer;
+		padding: 20px;
+		border: 1px solid white;
+		transition: background-color .5s;
+		color: #28F2BE;
+		background-color: white;
+		font-weight: bold;
+	}
+	
+	.morebutton:hover{
+		background-color: #28F2BE;
+		color: white;
+		transition: background-color .5s;
+	}
+	
+	.gridcontainer{
+		overflow: auto;
+		white-space: nowrap;
+	}
+	
+	.gridcontainerunscrollable{
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		justify-content: center;
+		
+	}
+	
+	/* SCROLLBAR STYLING */
+	/* width */
+	.gridcontainer::-webkit-scrollbar {
+		width: 10px;
+		height: 10px;
+	}
+	/* Track */
+	.gridcontainer::-webkit-scrollbar-track {
+		background: black; 
+	}
+	/* Handle */
+	.gridcontainer::-webkit-scrollbar-thumb {
+		border-radius: 6px;
+		background: #28F2BE; 
+	}
+	/* Handle on hover */
+	.gridcontainer::-webkit-scrollbar-thumb:hover {
+		background: #514FFF; 
+	}
+
+	
+	.filmblock{
+		display: inline-block;
+		margin: 10px;
+		text-align: center;
+		border: 2px solid white;
+		transition: box-shadow .5s;
+		width: 300px;
+	}
+	
+	.filmblock:hover{
+		-webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.35);
+		-moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.35);
+		box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.35);
+		transition: box-shadow .5s;
+	}
+	
+	.productthumbnail{
+		width: 300px;
+		height: 300px;
+	}
+	
+	
+	.filmblocktitleholder{
+		position: absolute; bottom: 0; left: 0; right: 0; text-align: center; background-color: rgba(255,255,255,.75); padding: 10px; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; color: black; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+	}
+	
+	
+	.hiddeninmobile{
+		display: table-cell;
+	}
+	
+	.firstthreecontainer{
+		padding-left: 60px; padding-right: 60px;
+	}
+	
+	.posttableblock{
+		display: table; width: 100%;
+	}
+	
+	.postcontent{
+		display: table-cell;
+		padding-right: 14px;
+	}
+	
+	.randomvids{
+		display: table-cell;
+		width: 350px;
+		vertical-align: top;
+	}
+	
+	#productpic{
+		width: 100%;
+		height: 512px;
+		background-color: black;
+		outline: none;
+		border-radius: 6px;
+		
+		
+	}
+	
+	.randomvidblock{
+		display: table;
+		width: 350px;
+		padding: 14px;
+		box-sizing: border-box;
+		transition: background-color .5s;
+		border-radius: 5px;
+		
+	}
+	
+	.randomvidblock:hover{
+		background-color: white;
+		transition: background-color .5s;
+		
+	}
+	
+	.lilimage{
+		display: table-cell;
+		width: 128px;
+		border-radius: 6px;
+	}
+	
+	.lildescr{
+		display: table-cell;
+	}
+	
+	.shorttext{
+		display: block;
+		width: 200px;
+		padding-left: 14px;
+		box-sizing: border-box;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+	
+	#searchui{
+		display: none;
+		position: fixed; 
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0,0,0,.5);
+		backdrop-filter: blur(15px);
+		-webkit-backdrop-filter: blur(15px);
+	}
+	
+	.sinputcontainer{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -50px;
+		margin-left: -150px;
+		width: 300px;
+		height: 100px;
+		text-align: center;
+	}
+	
+	#searchinput{
+		border-radius: 6px;
+		outline: none;
+		border: 3px solid #28F2BE;
+	}
+	
+	.smallinmobile{
+		display: table-cell;
+	}
+	
+	.w75{
+		width: 75%;
+	}
+	
+	.w25{
+		width: 25%;
+	}
+	
+	.brightonhover{
+		display: table; width: 100%; height: 100%; background-color: rgba(0,0,0,.25); padding: 40px; box-sizing: border-box; border-radius: 6px;
+		transition: background-color .5s;
+	}
+	
+	.brightonhover:hover{
+		background-color: rgba(0,0,0,.5);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		transition: background-color .5s;
+	}
+	
+	.slick-prev:before {
+		color: #28F2BE;
+	}
+	.slick-next:before {
+		color: #28F2BE;
+	}
+	
+	.orderblock{
+		background-color: white;
+		border-radius: 6px;
+		border: 2px solid #28F2BE;
+	}
+	
+	.buybutton{
+		background-color: #28F2BE;
+		transition: background-color .5s;
+		cursor: pointer;
+		font-weight: bold;
+		padding: 10px;
+		display: inline-block;
+		border-radius: 6px;
+		color: white;
+		margin-right: 10px;
+	}
+	
+	.buybutton:hover{
+		background-color: #514FFF;
+		transition: background-color .5s;
+	}
+	
+	.shoppingcart{
+		color: white;
+		background-color: #28F2BE;
+		padding-bottom: 50px;
+		margin-top: 20px;
+	}
+	
+	.smallerinput input, label{
+		margin-bottom: 2px;
+		margin-top: 2px;
+		padding: 5px;
+		font-size: 14px;
+	}
+	
+	.ordereditem{
+		padding: 5px;
+		margin-bottom: 2px;
+		border-radius: 6px;
+	}
+	
+	.ordereditem:hover{
+		background-color: #514FFF;
+	}
+	
+	.floatright{
+		float: right;
+		margin-top: 10px;
+		margin-right: 10px;
+		width: 200px;
+	}
+	
+	.producthalfbox{
+		display: table-cell;
+		vertical-align: top;
+	}
+	
+	.leftphb{
+		width: 256px;
+		padding-right: 10px;
+	}
+	
+	#imagepickerui{
+		position: fixed;
+		top: 0;
+		left: 0; 
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0,0,0,.75);
+		padding: 50px;
+		color: white;
+		
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+	}
+	
+	.cartbuttoncircle{
+		width: 96px; height: 96px;
+	}
+	
+	.loginform{
+		padding: 100px; width: 400px; margin: 0 auto;
+	}
+	
+	.adminmenubar{
+		display: table-cell; width: 140px; background-color: black; color: white;
+	}
+	
+	.barsbutton{
+		display: none;
+	}
+	
+	.stickythingy{
+		position: -webkit-sticky; /* Safari */
+		position: sticky;
+		top: 0;
+	}
+	
+	
+	
+	/* mobile view */
+	@media (max-width: 800px){
+		
+		.inlinecenterblock{
+			display: block;
+			text-align: center;
+			padding: 10px;
+			box-sizing: border-box;
+			width: 100%;
+			margin: 0px;
+		}
+		
+		
+		#cartui{
+			padding: 10px;
+		}
+		
+		.buybutton{
+			margin: 5px;
+		}
+		
+		.barsbutton{
+			display: block;
+			position: fixed;
+			top: 0;
+			left: 0;
+			padding: 7px;
+			background-color: rgba(0,0,0,.75);
+			color: white;
+			z-index: 100;
+		}
+		
+		.adminmenubar{
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			z-index: 99;
+			width: 40%;
+			overflow: auto;
+		}
+		
+		.stickythingy{
+			position: static;
+		}
+		
+		.loginform{
+			padding: 10px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		
+		
+		.cartbuttoncircle{
+			width: 64px; height: 64px;
+		}
+		
+		#cartbutton{
+			padding: 10px;
+			font-size: 20px;
+		}
+		
+		#header{
+			position: static;
+		}
+		
+		.productthumbnail{
+			width: 128px;
+			height: 128px;
+		}
+		
+		.filmblock{
+			width: 128px;
+			font-size: 12px;
+			margin: 2px;
+		}
+		
+		.floatright{
+			float: none;
+			margin: 0px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		
+		.footerlink{
+			display: block;
+			padding: 20px;
+			width: 100%;
+		}
+		
+		.smallinmobile{
+			font-size: 10px;
+			display: block;
+			width: 100%;
+			text-align: center;
+		}
+		
+		.morebutton{
+			width: 100px;
+			padding: 10px;
+			background-color: white;
+			border: 1px solid white;
+			color: #28F2BE;
+			margin: 0 auto;
+		}
+		
+		.flblock{
+			display: block;
+			box-sizing: border-box;
+			width: 100%;
+			max-width: 720px;
+		}
+		
+		.hiddeninmobile{
+			display: none;
+		}
+		
+		.firstthreecontainer{
+			padding-left: 0px; padding-right: 0px;
+			margin-bottom: -40px;
+			margin-top: -20px;
+		}
+		
+		.firstthreeblock{
+			margin: 10px;
+		}
+		
+		.posttableblock{
+			display: block;
+		}
+		
+		.postcontent{
+			display: block;
+			padding-right: 0px;
+		}
+		
+		.randomvids{
+			display: table;
+			width: 100%;
+			margin-top: 50px;
+		}
+		
+		.randomvidblock{
+			display: table;
+			width: 100%;
+			padding: 14px;
+			transition: background-color .5s;
+		}
+		
+		.randomvidblock:hover{
+			background-color: white;
+			transition: background-color .5s;
+		}
+		
+		.lilimage{
+			display: table-cell;
+			height: 92px;
+			width: 128px;
+		}
+		
+		.lildescr{
+			display: table-cell;
+		}
+		
+		#webvideo{
+			height: 256px;
+		}
+		
+		.producthalfbox{
+			display: block;
+		}
+		
+		.leftphb{
+			width: 100%;
+		}
+		
+	}
+	
+</style>		<style>
+			body{
+				padding: 0px;
+				margin: 0px;
+			}
+			.adminleftbaritem{
+				padding: 10px;
+				border-bottom: 1px solid #2e2e2e;
+				cursor: pointer;
+			}
+			.adminleftbaritem:hover{
+				background-color: white;
+				color: black;
+				transition: background-color .5s;
+			}
+			
+			.bar{
+				background-color: #28F2BE; 
+				display: block;
+				height: 3px;
+				border-radius: 10px;
+				width: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="barsbutton" onclick="toggleadminmenu()"><i class="fa fa-bars"></i></div>
+						
+				<div style="display: table; position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; height: 100%;">
+					<div style="display: table-row; height: 100%;">
+						<div class="adminmenubar">
+							<div class="stickythingy">
+								<div style="padding: 40px;">
+																		<a target="_blank" href="http://localhost/tokoonlineku/"><img src="./Admin Panel _ OLIN KIRANA SKINCARE_files/keodx7f89o.jpg" style="display: border-box; width: 100%;"></a>
+								</div>
+								<a href="http://localhost/tokoonlineku/admin.php"><div class="adminleftbaritem"><i class="fa fa-home" style="width: 30px;"></i> Beranda</div></a>
+								<a href="http://localhost/tokoonlineku/admin.php?newpost"><div class="adminleftbaritem"><i class="fa fa-plus" style="width: 30px;"></i> Tambah Produk</div></a>
+								<a href="http://localhost/tokoonlineku/admin.php?pictures"><div class="adminleftbaritem"><i class="fa fa-image" style="width: 30px;"></i> Gambar</div></a>
+								<a href="http://localhost/tokoonlineku/admin.php?categories"><div class="adminleftbaritem"><i class="fa fa-tag" style="width: 30px;"></i> Kategori</div></a>
+								<a href="http://localhost/tokoonlineku/admin.php?orders"><div class="adminleftbaritem"><i class="fa fa-file-text" style="width: 30px;"></i> Pesanan</div></a>
+								<a href="http://localhost/tokoonlineku/admin.php?settings"><div class="adminleftbaritem"><i class="fa fa-cogs" style="width: 30px;"></i> Pengaturan</div></a>
+								<a href="http://localhost/tokoonlineku/admin.php?logout"><div class="adminleftbaritem"><i class="fa fa-sign-out" style="width: 30px;"></i> Keluar</div></a>
+								
+								<div style="text-align: center; padding: 30px; font-size: 10px;">Dikembangkan oleh<br><a target="_blank" class="textlink" style="color: lime;" href="https://webappdev.my.id/">https://webappdev.my.id/</a><br><br>Donate to the author:<br><a href="https://www.paypal.me/habibieamrullah" class="textlink" style="color: lime;">https://www.paypal.me/habibieamrullah</a></div>
+							</div>
+						</div>
+						<div style="display: table-cell; padding: 25px; vertical-align: top; border-left: 1px solid #28F2BE; ">
+															<h1>Gambar</h1>
+								<div class="alert" style="display: none;">Gambar tambahan sudah diunggah.</div><div style="display: inline-block; vertical-align: top; text-align: center;"><div><img src="./Admin Panel _ OLIN KIRANA SKINCARE_files/zqw8dwryhh.jpg" height="128px" style="margin: 5px; border-radius: 5px; cursor: pointer;" onclick="showimage(&#39;pictures/zqw8dwryhh.jpg&#39;)"></div><a class="textlink" href="http://localhost/tokoonlineku/admin.php?pictures&amp;delete=zqw8dwryhh.jpg"><i class="fa fa-trash"></i> Hapus</a></div><div style="display: inline-block; vertical-align: top; text-align: center;"><div><img src="./Admin Panel _ OLIN KIRANA SKINCARE_files/im1lvlnf78.jpg" height="128px" style="margin: 5px; border-radius: 5px; cursor: pointer;" onclick="showimage(&#39;pictures/im1lvlnf78.jpg&#39;)"></div><a class="textlink" href="http://localhost/tokoonlineku/admin.php?pictures&amp;delete=im1lvlnf78.jpg"><i class="fa fa-trash"></i> Hapus</a></div><div style="display: inline-block; vertical-align: top; text-align: center;"><div><img src="./Admin Panel _ OLIN KIRANA SKINCARE_files/112j2w49jx.jpg" height="128px" style="margin: 5px; border-radius: 5px; cursor: pointer;" onclick="showimage(&#39;pictures/112j2w49jx.jpg&#39;)"></div><a class="textlink" href="http://localhost/tokoonlineku/admin.php?pictures&amp;delete=112j2w49jx.jpg"><i class="fa fa-trash"></i> Hapus</a></div><div style="display: inline-block; vertical-align: top; text-align: center;"><div><img src="./Admin Panel _ OLIN KIRANA SKINCARE_files/keodx7f89o(1).jpg" height="128px" style="margin: 5px; border-radius: 5px; cursor: pointer;" onclick="showimage(&#39;pictures/keodx7f89o.jpg&#39;)"></div><a class="textlink" href="http://localhost/tokoonlineku/admin.php?pictures&amp;delete=keodx7f89o.jpg"><i class="fa fa-trash"></i> Hapus</a></div><div style="display: inline-block; vertical-align: top; text-align: center;"><div><img src="./Admin Panel _ OLIN KIRANA SKINCARE_files/yy7le626c0.jpg" height="128px" style="margin: 5px; border-radius: 5px; cursor: pointer;" onclick="showimage(&#39;pictures/yy7le626c0.jpg&#39;)"></div><a class="textlink" href="http://localhost/tokoonlineku/admin.php?pictures&amp;delete=yy7le626c0.jpg"><i class="fa fa-trash"></i> Hapus</a></div><div style="display: inline-block; vertical-align: top; text-align: center;"><div><img src="./Admin Panel _ OLIN KIRANA SKINCARE_files/qzy3d7yxm5.jpg" height="128px" style="margin: 5px; border-radius: 5px; cursor: pointer;" onclick="showimage(&#39;pictures/qzy3d7yxm5.jpg&#39;)"></div><a class="textlink" href="http://localhost/tokoonlineku/admin.php?pictures&amp;delete=qzy3d7yxm5.jpg"><i class="fa fa-trash"></i> Hapus</a></div><div style="display: inline-block; vertical-align: top; text-align: center;"><div><img src="./Admin Panel _ OLIN KIRANA SKINCARE_files/lo98jrztua.jpeg" height="128px" style="margin: 5px; border-radius: 5px; cursor: pointer;" onclick="showimage(&#39;pictures/lo98jrztua.jpeg&#39;)"></div><a class="textlink" href="http://localhost/tokoonlineku/admin.php?pictures&amp;delete=lo98jrztua.jpeg"><i class="fa fa-trash"></i> Hapus</a></div><div style="display: inline-block; vertical-align: top; text-align: center;"><div><img src="./Admin Panel _ OLIN KIRANA SKINCARE_files/ltv943z2dc.jpg" height="128px" style="margin: 5px; border-radius: 5px; cursor: pointer;" onclick="showimage(&#39;pictures/ltv943z2dc.jpg&#39;)"></div><a class="textlink" href="http://localhost/tokoonlineku/admin.php?pictures&amp;delete=ltv943z2dc.jpg"><i class="fa fa-trash"></i> Hapus</a></div><div style="display: inline-block; vertical-align: top; text-align: center;"><div><img src="./Admin Panel _ OLIN KIRANA SKINCARE_files/iw82ofsawe.jpg" height="128px" style="margin: 5px; border-radius: 5px; cursor: pointer;" onclick="showimage(&#39;pictures/iw82ofsawe.jpg&#39;)"></div><a class="textlink" href="http://localhost/tokoonlineku/admin.php?pictures&amp;delete=iw82ofsawe.jpg"><i class="fa fa-trash"></i> Hapus</a></div>								<div style="margin-top: 50px">
+									<form method="post" enctype="multipart/form-data">
+										<label><i class="fa fa-image"></i> Tambahkan gambar lain</label>
+										<input class="fileinput" name="newmorepicture[]" type="file" accept="image/jpeg, image/png" multiple="multiple">
+										<input name="submitmorepictures" type="submit" value="Tambahkan" class="submitbutton">
+									</form>
+								</div>
+														</div>
+					</div>
+				</div>
+				
+				<div id="imagedisplayer" onclick="hideimagedisplayer()"></div>
+				
+				<script>
+				
+					function showimagepicker(){
+						$("body").append("<div id='imagepickerui'><h2 onclick='closeimagepicker()' style='cursor: pointer;'><i class='fa fa-arrow-left'></i> Back</h2><div id='imagepickercontent'>Please wait...</div>")
+						$.get("imagepicker.php", function(data){
+							$("#imagepickercontent").html(data)
+						})
+					}
+					
+					function insertthis(img){
+						var randata = Math.ceil(Math.random()*10000)
+						$("#moreimagesvisual").append("<div class='imgitem' style='display: inline-block; vertical-align: top;' onclick=removethis('" +randata+ "')><div class='imgitemdatarand' style='display: none'>"+randata+"</div><div class='imgitemdata' style='display: none'>"+img+"</div><img src='" + img + "' style='height: 64px; margin: 10px; border-radius: 5px; cursor: not-allowed;'></div>")
+						closeimagepicker()
+						ipvisualtodata()
+					}
+					
+					function removethis(randata){
+						for(var i = 0; i < $(".imgitem").length; i++){
+							if($(".imgitemdatarand").eq(i).text() == randata)
+								$(".imgitem").eq(i).remove()
+						}
+						ipvisualtodata()
+					}
+					
+					function ipvisualtodata(){
+						var data = ""
+						for(var i = 0; i < $(".imgitem").length; i++){
+							data += $(".imgitemdata").eq(i).text() + ",";
+						}
+						$("#moreimagesinput").val(data)
+					}
+					
+					function ipdatatovisual(){
+						var data = $("#moreimagesinput").val()
+						data = data.split(",")
+						for(var i = 0; i < data.length; i++){
+							if(data[i] != ""){
+								insertthis(data[i])
+							}
+						}
+					}
+					
+					function closeimagepicker(){
+						$("#imagepickerui").remove()
+					}
+				
+					function showimage(img){
+						$("#imagedisplayer").html("<img src='http://localhost/tokoonlineku/" +img+ "' style='height: 100%;'>").fadeIn()
+					}
+					
+					
+					function hideimagedisplayer(){
+						$("#imagedisplayer").fadeOut()
+					}
+					
+					var moptions = []
+
+					function addnewoptiontitle(){
+						
+						var nottl = $("#newoptiontitle").val()
+						if(nottl != ""){
+							moptions.push({ title : nottl , options : [] })
+							updatemovisual()
+							closemoform()
+							$("#moformbutton").hide()
+							editmop(0)
+						}
+						
+					}
+
+					function editmop(i){
+						$("#moformedit").show()
+						$("#motitletoedit").html(moptions[i].title)
+					}
+
+					function addcurrentmoitem(){
+						var moitem = $("#moitem").val()
+						var moprice = $("#moprice").val()
+						if(moitem != "" && moprice > 0){
+							moptions[0].options.push({ title : moitem, price : moprice})
+							$("#moitem").val("").focus()
+							$("#moprice").val(0)
+							updatemovisual()
+						}
+					}
+
+					function showmoform(){
+						$("#moformbutton").hide()
+						$("#moform").show()
+					}
+					function closemoform(){
+						$("#moformbutton").show()
+						$("#moform").hide()
+					}
+					function closemoeditform(){
+						$("#moformedit").hide()
+					}
+					function updatemovisual(){
+						if(moptions.length == 1){
+							$("#moreoptionsvisual").html("")
+							var mocontent = ""
+							for(var i = 0; i < moptions.length; i++){
+								mocontent += "<div class='categoryblock'><div><i class='fa fa-check-square-o'></i> " + moptions[i].title + "<span onclick='editmop("+i+")'style='cursor: pointer; margin-left: 20px; font-size: 12px; color: black;'><i class='fa fa-edit'></i> Ubah</span></div>"
+								if(moptions[i].options.length > 0){
+									for(var x = 0; x < moptions[i].options.length; x++){
+										mocontent += "<div style='font-size: 12px; padding: 10px;'><i class='fa fa-arrow-right'></i> " +moptions[i].options[x].title+ " (" +tSep(moptions[i].options[x].price)+ ")</div>"
+									}
+								}
+								mocontent += "</div>"
+							}
+							$("#moreoptionsvisual").append(mocontent)
+							$("#newoptiontitle").val("")
+							$("#moform").hide()
+							$("#moformbutton").hide()
+							$("#moreoptions").val(JSON.stringify(moptions))
+						}else{
+							$("#moreoptionsvisual").html("Belum ada opsi yang ditambahkan.")
+							$("#moformbutton").show()
+						}
+					}
+					updatemovisual()
+				</script>
+				
+						
+		<script>
+			setTimeout(function(){
+				$(".alert").slideUp()
+			}, 2000)
+			
+			function toggleadminmenu(){
+				$(".adminmenubar").toggle()
+			}
+			
+		</script>
+	
+</body></html>

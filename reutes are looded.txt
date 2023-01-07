@@ -1,0 +1,5 @@
+reutes are looded 
+by the routeserveviceprovid wthin a group which contains the "web" middlleware group. now crate something great!
+
+*/
+route::get('/walcome 
